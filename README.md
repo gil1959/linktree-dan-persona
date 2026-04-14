@@ -1,6 +1,4 @@
-# DOKUMENTASI TEKNIS PROYEK
-
-## Personal Linktree — Retro 8-Bit Edition
+## linkree dan persona
 
 **Mata Kuliah** : Pemrograman Web  
 **Jenis Proyek** : Website Personal (Linktree dan persona)  
@@ -15,11 +13,10 @@
 3. [Teknologi yang Digunakan](#3-teknologi-yang-digunakan)  
 4. [Struktur Direktori Proyek](#4-struktur-direktori-proyek)  
 5. [Penjelasan Komponen Utama](#5-penjelasan-komponen-utama)  
-6. [Fitur Linktree — Penjelasan Teknis](#6-fitur-linktree--penjelasan-teknis)  
-7. [Fitur Persona Finder — Penjelasan Teknis](#7-fitur-persona-finder--penjelasan-teknis)  
+6. [Fitur Linktree - Penjelasan Teknis](#6-fitur-linktree--penjelasan-teknis)  
+7. [Fitur Persona Finder - Penjelasan Teknis](#7-fitur-persona-finder--penjelasan-teknis)  
 8. [Cara Menjalankan Proyek](#8-cara-menjalankan-proyek)  
 9. [Kesimpulan](#9-kesimpulan)  
-10. [Saran Pengembangan](#10-saran-pengembangan)  
 
 ---
 
@@ -31,42 +28,27 @@ Dalam era digital saat ini, kebutuhan untuk menyatukan berbagai tautan media sos
 
 Proyek ini hadir sebagai alternatif yang dibangun secara mandiri (*self-hosted*), dengan memadukan fungsi linktree yang praktis bersama estetika desain retro bergaya 8-bit yang autentik. Desain yang diusung terinspirasi dari antarmuka permainan video klasik era 1980-an hingga 1990-an, mencakup efek CRT, tipografi pixel, animasi sprite karakter, dan sistem statistik bergaya RPG.
 
-### 1.2 Tujuan
-
-Proyek ini bertujuan untuk:
-
-- Membangun website personal linktree yang fungsional menggunakan teknologi web standar tanpa ketergantungan framework front-end besar.
-- Mengimplementasikan desain antarmuka yang unik dan estetis dengan mengacu pada gaya visual game retro.
-- Menerapkan interaktivitas berbasis JavaScript murni (*Vanilla JS*), meliputi animasi, efek suara, toggle tema, dan logika dinamis.
-- Menyediakan fitur tambahan berupa **Persona Finder**, yakni sistem inferensi persona berbasis input pengguna yang menghasilkan output dinamis.
-
-### 1.3 Ruang Lingkup
-
-Proyek ini mencakup pembangunan website statis yang dilayani oleh server Node.js dengan Express.js, tanpa penggunaan database atau sistem autentikasi. Seluruh logika berjalan di sisi klien (*client-side*) menggunakan JavaScript.
-
----
-
 ## 2. Deskripsi Website
 
 Website ini merupakan halaman *personal hub* yang berfungsi sebagai pusat navigasi menuju berbagai profil media sosial dan tautan penting milik pemilik. Secara visual, website ini meniru estetika terminal komputer dan konsol game jadul dengan sejumlah elemen khas:
 
 **Elemen Visual Utama:**
 
-- *CRT Overlay* — Lapisan transparan yang mensimulasikan efek layar tabung katoda (CRT), termasuk goresan horizontal (*scanlines*) dan efek vignette pada sudut layar.
-- *Boot Screen* — Layar pemuatan bergaya inisialisasi sistem yang muncul saat halaman pertama kali dibuka.
-- *Pixel Avatar* — Karakter sprite 8-bit yang dirender menggunakan elemen SVG dengan properti `image-rendering: pixelated`.
-- *Stat Panel* — Panel statistik karakter bergaya RPG yang menampilkan HP, MP, XP, serta atribut STR/INT/DEX/WIS.
-- *Ticker Tape* — Baris teks berjalan di bagian bawah layar, menyerupai papan tanda digital.
-- *Now Playing* — Komponen simulasi pemutar musik bergaya retro.
+- *CRT Overlay* - Lapisan transparan yang mensimulasikan efek layar tabung katoda (CRT), termasuk goresan horizontal (*scanlines*) dan efek vignette pada sudut layar.
+- *Boot Screen* - Layar pemuatan bergaya inisialisasi sistem yang muncul saat halaman pertama kali dibuka.
+- *Pixel Avatar* - Karakter sprite 8-bit yang dirender menggunakan elemen SVG dengan properti `image-rendering: pixelated`.
+- *Stat Panel* - Panel statistik karakter bergaya RPG yang menampilkan HP, MP, XP, serta atribut STR/INT/DEX/WIS.
+- *Ticker Tape* - Baris teks berjalan di bagian bawah layar, menyerupai papan tanda digital.
+- *Now Playing* - Komponen simulasi pemutar musik bergaya retro.
 
 **Fitur Interaktif:**
 
 - Tombol *toggle* antara tema gelap (*Dark Mode*) dan tema terang (*Light Mode*).
 - Efek suara sintetis berbasis Web Audio API yang diputar saat hover dan klik.
-- *Konami Code Easter Egg* — kode rahasia yang mengaktifkan efek visual kejutan.
+- *Konami Code Easter Egg* - kode rahasia yang mengaktifkan efek visual kejutan.
 - Sistem notifikasi *achievement* bergaya game.
 - Kanvas HTML5 dengan animasi latar belakang (*starfield*, pixel rain, shooting stars).
-- *Persona Finder* — Fitur interaktif yang menganalisis input pengguna dan menghasilkan output berupa persona unik bergaya RPG.
+- *Persona Finder* - Fitur interaktif yang menganalisis input pengguna dan menghasilkan output berupa persona unik bergaya RPG.
 
 ---
 
@@ -154,7 +136,7 @@ personalinktree/
 
 ## 5. Penjelasan Komponen Utama
 
-### 5.1 Server Utama — `index.js`
+### 5.1 Server Utama - `index.js`
 
 File ini merupakan titik masuk (*entry point*) aplikasi Node.js yang mendefinisikan dan menjalankan server web.
 
@@ -180,7 +162,7 @@ app.listen(PORT, () => {
 2. Middleware `express.static` dikonfigurasi untuk memetakan direktori `public/` sebagai akar (*root*) file statis. Artinya, permintaan ke `http://localhost:3000/` akan secara otomatis mengembalikan file `public/index.html`.
 3. Server mulai mendengarkan koneksi pada port yang ditentukan oleh variabel lingkungan `PORT`, atau port `3000` sebagai nilai default.
 
-### 5.2 Konfigurasi Proyek — `package.json`
+### 5.2 Konfigurasi Proyek - `package.json`
 
 ```json
 {
@@ -199,7 +181,7 @@ app.listen(PORT, () => {
 
 Perintah `npm start` menjalankan `node index.js`. Untuk pengembangan aktif, perintah `npm run dev` menggunakan `nodemon` agar server otomatis *restart* saat ada perubahan file (memerlukan instalasi `nodemon` secara terpisah).
 
-### 5.3 Sistem Token Desain — `style.css`
+### 5.3 Sistem Token Desain - `style.css`
 
 Sistem desain dibangun di atas CSS Custom Properties yang dideklarasikan pada selektor `:root`. Pendekatan ini memungkinkan seluruh halaman beralih tema hanya dengan mengganti nilai variabel pada atribut `data-theme`.
 
@@ -233,7 +215,7 @@ Sistem desain dibangun di atas CSS Custom Properties yang dideklarasikan pada se
 
 ---
 
-## 6. Fitur Linktree — Penjelasan Teknis
+## 6. Fitur Linktree - Penjelasan Teknis
 
 ### 6.1 Boot Screen
 
@@ -323,7 +305,7 @@ Efek CRT diimplementasikan murni menggunakan CSS tanpa gambar eksternal. Dua ele
 }
 ```
 
-### 6.3 Panel Karakter — Pixel Avatar
+### 6.3 Panel Karakter - Pixel Avatar
 
 Avatar karakter dirender secara programatik menggunakan JavaScript yang menyuntikkan markup SVG ke dalam elemen `<div id="playerAvatar">`. Setiap piksel karakter direpresentasikan oleh sebuah elemen `<rect>` dalam SVG.
 
@@ -378,7 +360,7 @@ function animateStatBars() {
 
 Penggunaan dua `requestAnimationFrame` bersarang diperlukan untuk memastikan browser sempat merender state awal (0%) sebelum transisi dimulai.
 
-### 6.5 Sistem Suara — Web Audio API
+### 6.5 Sistem Suara - Web Audio API
 
 Seluruh efek suara dihasilkan secara sintetis menggunakan Web Audio API tanpa berkas audio eksternal. Fungsi inti `beep` menciptakan gelombang kotak (*square wave*) yang khas pada game retro.
 
@@ -411,15 +393,15 @@ function beep(freq = 440, dur = 0.1, type = 'square', vol = 0.08) {
 | `type` | `string` | `'square'` | Bentuk gelombang (`'square'`, `'sine'`, `'sawtooth'`) |
 | `vol` | `number` | `0.08` | Volume awal (rentang 0.0–1.0) |
 
-### 6.6 Animasi Latar Belakang — Canvas HTML5
+### 6.6 Animasi Latar Belakang - Canvas HTML5
 
 Fungsi `initBackground` menginisialisasi kanvas HTML5 yang merender tiga lapisan animasi secara bersamaan dalam satu *render loop*:
 
-**Lapisan 1 — Bintang berkelip:** 120 objek bintang diinisialisasi dengan posisi, fase, dan kecepatan acak. Setiap frame, nilai `phase` diinkrementasi, kemudian nilai sinus-nya dikonversi menjadi nilai opasitas sehingga bintang tampak berdenyut.
+**Lapisan 1 - Bintang berkelip:** 120 objek bintang diinisialisasi dengan posisi, fase, dan kecepatan acak. Setiap frame, nilai `phase` diinkrementasi, kemudian nilai sinus-nya dikonversi menjadi nilai opasitas sehingga bintang tampak berdenyut.
 
-**Lapisan 2 — Pixel rain (Dark Mode):** Kolom karakter Katakana Jepang (rentang Unicode `0x30A0–0x30FF`) jatuh dari atas kanvas, menyerupai efek *Matrix digital rain* namun sangat transparan (opasitas 0.02–0.10) sehingga berfungsi sebagai tekstur latar belakang.
+**Lapisan 2 - Pixel rain (Dark Mode):** Kolom karakter Katakana Jepang (rentang Unicode `0x30A0–0x30FF`) jatuh dari atas kanvas, menyerupai efek *Matrix digital rain* namun sangat transparan (opasitas 0.02–0.10) sehingga berfungsi sebagai tekstur latar belakang.
 
-**Lapisan 3 — Shooting stars:** Partikel bintang jatuh yang dirender sebagai garis pendek dengan jejak piksel (*pixel trail*), secara periodik muncul dan menghilang.
+**Lapisan 3 - Shooting stars:** Partikel bintang jatuh yang dirender sebagai garis pendek dengan jejak piksel (*pixel trail*), secara periodik muncul dan menghilang.
 
 ```javascript
 function draw() {
@@ -493,7 +475,7 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 
 ---
 
-## 7. Fitur Persona Finder — Penjelasan Teknis
+## 7. Fitur Persona Finder - Penjelasan Teknis
 
 ### 7.1 Gambaran Umum
 
@@ -523,7 +505,7 @@ Ambil Data Persona dari PERSONA_DB
 Render Hasil (Ikon, Judul, Deskripsi, Stat Bars, Rarity)
 ```
 
-### 7.2 Struktur Data — `PERSONA_DB`
+### 7.2 Struktur Data - `PERSONA_DB`
 
 Seluruh data persona disimpan dalam sebuah objek JavaScript literal bernama `PERSONA_DB`. Objek ini memiliki 10 kunci yang masing-masing merepresentasikan satu kategori hobi.
 
@@ -533,19 +515,19 @@ const PERSONA_DB = {
     label: 'DEVELOPER',   // Nama kelas yang ditampilkan
     color: '#00ff9d',      // Warna aksen untuk persona ini
     tiers: [
-      // Tier 0 — Angka Keberuntungan 1-3
+      // Tier 0 - Angka Keberuntungan 1-3
       {
         title: 'The Bug Whisperer',
         desc:  'Machines speak to you in their native tongue...',
         stats: { STR: 60, INT: 99, DEX: 70, WIS: 80 }
       },
-      // Tier 1 — Angka Keberuntungan 4-7
+      // Tier 1 - Angka Keberuntungan 4-7
       {
         title: 'The Tech Innovator',
         desc:  'You build tomorrow one line at a time...',
         stats: { STR: 65, INT: 95, DEX: 75, WIS: 88 }
       },
-      // Tier 2 — Angka Keberuntungan 8-10
+      // Tier 2 - Angka Keberuntungan 8-10
       {
         title: 'The Code Wizard',
         desc:  'Ancient algorithms bow before you...',
@@ -572,7 +554,7 @@ const PERSONA_DB = {
 | `photography` | VISIONARY | `#a8ff3e` (Hijau terang) |
 | `writing` | STORYTELLER | `#d0a0ff` (Ungu muda) |
 
-### 7.3 Logika Penentuan Tier — Fungsi `getTier`
+### 7.3 Logika Penentuan Tier - Fungsi `getTier`
 
 **Definisi fungsi:**
 
@@ -616,7 +598,7 @@ Fungsi `getTier` menerima sebuah bilangan bulat yang merepresentasikan Angka Keb
 | 9 | 2 | Tinggi |
 | 10 | 2 | Tinggi |
 
-### 7.4 Logika Penentuan Rarity — Fungsi `getRarity`
+### 7.4 Logika Penentuan Rarity - Fungsi `getRarity`
 
 **Definisi fungsi:**
 
@@ -664,7 +646,7 @@ const RARITY = [
 | 9 | 2 | 4 + 3 → min(7,4) = **4** | Legendary |
 | 10 | 2 | 4 + 3 → min(7,4) = **4** | Legendary |
 
-### 7.5 Fungsi `initStepper` — Kontrol Angka Keberuntungan
+### 7.5 Fungsi `initStepper` - Kontrol Angka Keberuntungan
 
 **Definisi fungsi:**
 
@@ -694,7 +676,7 @@ function initStepper() {
 
 **Batasan nilai:** Nilai minimum adalah 1 dan maksimum adalah 10. Penekanan tombol di luar batas tidak mengubah nilai.
 
-### 7.6 Fungsi `typewriter` — Efek Pengetikan Teks
+### 7.6 Fungsi `typewriter` - Efek Pengetikan Teks
 
 **Definisi fungsi:**
 
@@ -720,13 +702,13 @@ Fungsi ini menganimasikan penampilan teks karakter demi karakter pada sebuah ele
 
 | Parameter | Tipe | Default | Keterangan |
 |---|---|---|---|
-| `el` | `HTMLElement` | — | Elemen DOM tujuan teks |
-| `text` | `string` | — | Teks yang akan dianimasikan |
+| `el` | `HTMLElement` | - | Elemen DOM tujuan teks |
+| `text` | `string` | - | Teks yang akan dianimasikan |
 | `speed` | `number` | `22` | Jeda antar karakter dalam milidetik |
 
 **Output:** Tidak mengembalikan nilai; memodifikasi properti `textContent` elemen secara langsung.
 
-### 7.7 Fungsi `buildStatBars` — Render Bilah Statistik Vertikal
+### 7.7 Fungsi `buildStatBars` - Render Bilah Statistik Vertikal
 
 **Definisi fungsi:**
 
@@ -771,7 +753,7 @@ function buildStatBars(container, stats, accentColor) {
 
 **Output:** Menghasilkan empat kolom DOM yang berisi bilah vertikal teranim dengan tinggi berdasarkan nilai numerik tiap atribut (0–99 dipetakan sebagai 0%–99% tinggi bilah).
 
-### 7.8 Fungsi `showPersonaResult` — Render Hasil Persona
+### 7.8 Fungsi `showPersonaResult` - Render Hasil Persona
 
 **Definisi fungsi:**
 
@@ -837,7 +819,7 @@ Output  :
   - Deskripsi         : "Ancient algorithms bow before you..." (typewriter)
   - Stat bars         : STR=70, INT=99, DEX=80, WIS=95 (animasi vertikal)
   - Rarity            : ★ LEGENDARY RANK
-  - Achievement popup : "LEGENDARY PERSONA — You are The Code Wizard!"
+  - Achievement popup : "LEGENDARY PERSONA - You are The Code Wizard!"
 ```
 
 ---
@@ -865,21 +847,11 @@ npm start
 #    http://localhost:3000
 ```
 
-**Catatan:** Jika port 3000 sudah digunakan oleh aplikasi lain, server dapat dijalankan pada port berbeda menggunakan variabel lingkungan:
-
-```bash
-# Windows (PowerShell)
-$env:PORT=3001; npm start
-
-# macOS / Linux
-PORT=3001 npm start
-```
-
 ---
 
 ## 9. Kesimpulan
 
-Proyek Personal Linktree — Retro 8-Bit Edition berhasil mengimplementasikan sebuah website personal yang fungsional dan estetis menggunakan tumpukan teknologi (*technology stack*) yang ringan namun ekspresif. Beberapa capaian teknis yang patut dicatat:
+Proyek Persona Linktree - Retro 8-Bit Edition berhasil mengimplementasikan sebuah website personal yang fungsional dan estetis menggunakan tumpukan teknologi (*technology stack*) yang ringan namun ekspresif. Beberapa capaian teknis yang patut dicatat:
 
 **Pertama,** desain antarmuka berhasil mencapai estetika retro 8-bit yang autentik melalui kombinasi tipografi pixel (Press Start 2P, VT323), animasi CSS murni tanpa *library* animasi pihak ketiga, dan render karakter sprite berbasis SVG. Efek CRT, scanline, dan glitch berhasil mensimulasikan tampilan monitor jadul secara meyakinkan.
 
@@ -891,22 +863,3 @@ Proyek Personal Linktree — Retro 8-Bit Edition berhasil mengimplementasikan se
 
 ---
 
-## 10. Saran Pengembangan
-
-Beberapa aspek yang dapat dikembangkan pada iterasi berikutnya:
-
-**Personalisasi Data:** Saat ini konten seperti nama, bio, tautan, dan statistik karakter masih berupa placeholder. Pembuatan panel administrasi sederhana atau file konfigurasi JSON yang mudah diedit akan meningkatkan kemudahan penyesuaian tanpa perlu mengubah kode langsung.
-
-**Database Persona yang Lebih Kaya:** Sistem Persona Finder saat ini menggunakan 10 × 3 = 30 kombinasi. Penambahan variabel input keempat (misalnya waktu lahir atau warna favorit) dapat meningkatkan jumlah kombinasi secara eksponensial dan membuat hasil terasa lebih individual.
-
-**Penyimpanan Hasil Persona:** Hasil persona yang diperoleh pengguna dapat disimpan dalam `localStorage` dan ditampilkan kembali saat kunjungan berikutnya, memberikan kesan "karakter yang diingat oleh sistem".
-
-**Responsivitas Mobile:** Meskipun tata letak sudah responsif pada breakpoint dasar, pengalaman pengguna di layar ponsel berukuran kecil (di bawah 380px) masih dapat dioptimalkan lebih lanjut, terutama untuk tipografi pixel yang memiliki keterbacaan rendah pada ukuran sangat kecil.
-
-**Aksesibilitas:** Penambahan dukungan navigasi keyboard penuh, deskripsi ARIA yang lebih komprehensif, dan opsi untuk menonaktifkan animasi (`prefers-reduced-motion`) akan membuat website lebih inklusif bagi pengguna dengan kebutuhan khusus.
-
-**Deployment:** Website ini dapat dengan mudah di-*deploy* ke platform seperti Railway, Render, atau Vercel (dengan konfigurasi tambahan) untuk dapat diakses secara publik melalui internet.
-
----
-
-*Dokumen ini dibuat sebagai bagian dari dokumentasi teknis proyek Personal Linktree — Retro 8-Bit Edition.*
